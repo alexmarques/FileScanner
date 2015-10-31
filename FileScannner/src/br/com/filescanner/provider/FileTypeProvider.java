@@ -7,5 +7,7 @@ public abstract class FileTypeProvider implements Iterable<Path> {
 	public abstract void parseFile();
 
 	public abstract boolean hasReferenceTo(Path currentFile);
+	
+	public abstract String[] acceptFile();
 
 }

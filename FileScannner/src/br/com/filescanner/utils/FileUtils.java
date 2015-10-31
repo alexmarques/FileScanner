@@ -29,9 +29,6 @@ public class FileUtils {
 	}
 	
 	public static Path resolve(Path path, String fileName) {
-		if(path.toString().indexOf("Modal.js") != -1 || fileName.indexOf("Modal.js") != -1) {
-			//System.out.println(fileName);
-		}
 		if(!fileName.startsWith("\\") && !fileName.startsWith("/")) {
 			return path.resolveSibling(fileName).normalize();
 		} else {

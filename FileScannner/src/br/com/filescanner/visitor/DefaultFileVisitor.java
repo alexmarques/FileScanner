@@ -29,7 +29,6 @@ public class DefaultFileVisitor implements FileVisitor<Path> {
 			FileTypeProvider provider = FileTypeFactory.getInstance().getFileTypeProvider(file);
 			if(provider != null && provider.hasReferenceTo(currentFile)) {
 				FileUtils.fileFound = true;
-				return FileVisitResult.TERMINATE;
 			} 
 		} catch (RuntimeException e) {
 		}
@@ -43,11 +42,6 @@ public class DefaultFileVisitor implements FileVisitor<Path> {
 
 	@Override
 	public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-		if(!FileUtils.fileFound) {
-			FileUtils.addUnusedFile(currentFile);
-			FileUtils.fileFound = false;
-		}
 		return FileVisitResult.CONTINUE;
 	}
-
 }	

@@ -18,7 +18,7 @@ public class LocalizarArquivosNaoUtilizados {
 		printUnusedFile();
 	}
 	
-	private static void printUnusedFile() {
+	private static void printUnusedFile() { 
 		for(Path path : FileUtils.getUnusedFiles()) {
 			System.out.println(path.toAbsolutePath().toString());
 		}
@@ -30,6 +30,11 @@ public class LocalizarArquivosNaoUtilizados {
 				varrerArquivos(Files.newDirectoryStream(directory), path);
 			} else {
 				Files.walkFileTree(path, new DefaultFileVisitor(directory));
+				if(!FileUtils.fileFound) {
+					FileUtils.addUnusedFile(directory);
+				} else {
+					FileUtils.fileFound = false;
+				}
 			}
 		}
 	}

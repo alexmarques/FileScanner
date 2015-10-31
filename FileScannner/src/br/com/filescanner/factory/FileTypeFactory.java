@@ -25,7 +25,7 @@ public class FileTypeFactory {
     
     public FileTypeProvider getFileTypeProvider(Path file) {
     	String name = file.toString();
-    	if(name.endsWith(".xsl") || name.endsWith(".xslt")) {
+    	if(name.endsWith(".xsl") || name.endsWith(".xslt") || name.endsWith(".xml")) {
     		return new XSLFileTypeProvider(file);
     	}
     	return null;

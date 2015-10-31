@@ -99,4 +99,10 @@ public class XSLFileTypeProvider extends FileTypeProvider implements Iterable<Pa
 		}
 		return false;
 	}
+
+	@Override
+	public String[] acceptFile() {
+		return new String[]{"xml","xslt","xsl"};
+		
+	}
 }
